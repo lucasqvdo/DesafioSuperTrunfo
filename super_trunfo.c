@@ -1,5 +1,7 @@
 
 #include <stdio.h>
+#include <string.h>
+
 /*A função main se inicia defindo as seguintes variaveis:
  Estado (string)
  Código da carta (string)
@@ -13,14 +15,15 @@
 
  
 int main() {    
-    char estado1[20];
-    char cod1[20];
+    char estado1[10];
+    char cod1[10];
     char cidade1[20];
     int populacao1;
     float area1;
     float pib1;
     int pontos_t1;
     
+
     
     char estado2[20];
     char cod2[20];
@@ -29,7 +32,8 @@ int main() {
     float area2;
     float pib2;
     int pontos_t2;
-    
+
+
     
     printf("Seja bem vindo ao \n~  SUPER TRUNFO  ~ \nVamos cadastrar a primeira carta!\n\n");
     printf("Digite o estado:\n");
@@ -37,7 +41,12 @@ int main() {
     printf("Digite o código da carta:\n");
     scanf("%s",cod1);
     printf("Digite a cidade da carta:\n");
-    scanf("%s",cidade1);
+    getchar();
+
+    // utilizado fgets para resolver o problema do espaço em nomes como "São Paulo"
+    fgets(cidade1, 20, stdin);
+    // removendo o \n adicionado pelo fgets
+    cidade1[strcspn(cidade1, "\n")] = 0;
     printf("Digite a popução:\n");
     scanf("%d",&populacao1);
     printf("Digite a área:\n");
@@ -46,9 +55,14 @@ int main() {
     scanf("%f",&pib1);
     printf("Digite a quantidade de pontos turisticos:\n");
     scanf("%d",&pontos_t1);
+
+    float dens_p1 = populacao1 / area1;
+    float pib_p1 = (pib1 * 1000000000) / populacao1;
     
+
     /*Após a entrada de cada carta o programa exibe os dados de forma legivel em que o usuário final consiga entender*/
-    printf(" Carta 1:\n Estado: %s\n Código: %s\n Nome da Cidade: %s\n População:%d\n Área: %f km²\n PIB: %f bilhões de reais\n Numero de pontos Turísticos: %d \n Densidade Populacional: %f hab/km² \nPIB per Capita: %d reais",estado1, cod1,cidade1, populacao1, area1,  pib1, pontos_t1);
+    printf(" Carta 1:\n Estado: %s\n Código: %s\n Nome da Cidade: %s\n População:%d\n Área: %f km²\n PIB: %f bilhões de reais\n Numero de pontos Turísticos: %d \n Densidade Populacional: %.2f hab/km² \nPIB per Capita: %.2f reais\n", 
+        estado1, cod1, cidade1, populacao1, area1, pib1,  pontos_t1, dens_p1, pib_p1);
  
     /*Inicia-se aqui a coleta dos dados da segunda carta*/
     printf("\nÓtimo! Agora vamos cadastrar a segunda carta!\n");
@@ -58,7 +72,11 @@ int main() {
     printf("Digite o código da carta\n");
     scanf("%s",cod2);
     printf("Digite a cidade da carta\n");
-    scanf("%s",cidade2);
+    getchar();
+    // utilizado fgets para resolver o problema do espaço em nomes como "São Paulo"
+    fgets(cidade2, 20, stdin);
+    // removendo o \n adicionado pelo fgets
+    cidade2[strcspn(cidade2, "\n")] = 0;
     printf("Digite a popução:\n");
     scanf("%d",&populacao2);
     printf("Digite a área:\n");
@@ -68,8 +86,13 @@ int main() {
     printf("Digite a quantidade de pontos turisticos:\n");
     scanf("%d",&pontos_t2);
     
+    float dens_p2 = populacao2 / area2;
+    float pib_p2 = (pib2 * 1000000000) / populacao2;
+    
+
+
     /*Exibição dos dados da segunda carta*/
-    printf("Carta 2:\n Estado: %s\n Código: %s\n Nome da Cidade: %s\n População:%d\n Área: %f km²\n PIB: %f bilhões de reais\n Numero de pontos Turísticos: %d \n",estado2, cod2,cidade2, populacao2, area2,  pib2, pontos_t2);
+    printf("Carta 2:\nEstado: %s\nCódigo: %s\nNome da Cidade: %s\nPopulação:%d\nÁrea: %f km²\nPIB: %f bilhões de reais\nNumero de pontos Turísticos: %d \nDensidade populacional: %.2f hab/km² \nPIB per Capita: %.2f reais\n ",estado2, cod2,cidade2, populacao2, area2,  pib2, pontos_t2, dens_p2, pib_p2);
  
     
   
