@@ -1,13 +1,15 @@
-// Online C compiler to run C program online
+
 #include <stdio.h>
-/*Receber os dados de duas cartas: O programa deve receber os dados de duas cartas do Super Trunfo. Utilize o código desenvolvido no desafio anterior para o cadastro das cartas. As cartas devem conter os seguintes atributos:
+/*A função main se inicia defindo as seguintes variaveis:
  Estado (string)
  Código da carta (string)
  Nome da cidade (string)
  População (int)
  Área (float)
  PIB (float)
- Número de pontos turísticos (int). */
+ Número de pontos turísticos (int). 
+ 
+ Após isso recebe as entradas dos usuários preenchendo todas as variaveis de cada carta*/
 
  
 int main() {    
@@ -29,12 +31,12 @@ int main() {
     int pontos_t2;
     
     
-    printf("Vamos cadastrar a primeira carta!\n");
-    printf("Digite o estado\n");
+    printf("Seja bem vindo ao \n~  SUPER TRUNFO  ~ \nVamos cadastrar a primeira carta!\n\n");
+    printf("Digite o estado:\n");
     scanf("%s",estado1);
-    printf("Digite o código da carta\n");
+    printf("Digite o código da carta:\n");
     scanf("%s",cod1);
-    printf("Digite a cidade da carta\n");
+    printf("Digite a cidade da carta:\n");
     scanf("%s",cidade1);
     printf("Digite a popução:\n");
     scanf("%d",&populacao1);
@@ -45,8 +47,11 @@ int main() {
     printf("Digite a quantidade de pontos turisticos:\n");
     scanf("%d",&pontos_t1);
     
+    /*Após a entrada de cada carta o programa exibe os dados de forma legivel em que o usuário final consiga entender*/
+    printf(" Carta 1:\n Estado: %s\n Código: %s\n Nome da Cidade: %s\n População:%d\n Área: %f km²\n PIB: %f bilhões de reais\n Numero de pontos Turísticos: %d \n",estado1, cod1,cidade1, populacao1, area1,  pib1, pontos_t1);
  
-    printf("Ótimo! Agora vamos cadastrar a segunda carta!\n");
+    /*Inicia-se aqui a coleta dos dados da segunda carta*/
+    printf("\nÓtimo! Agora vamos cadastrar a segunda carta!\n");
 
     printf("Digite o estado\n");
     scanf("%s",estado2);
@@ -63,32 +68,9 @@ int main() {
     printf("Digite a quantidade de pontos turisticos:\n");
     scanf("%d",&pontos_t2);
     
-    /* Calcular Densidade Populacional e PIB per capita: O programa deve calcular e exibir:
+    /*Exibição dos dados da segunda carta*/
+    printf("Carta 2:\n Estado: %s\n Código: %s\n Nome da Cidade: %s\n População:%d\n Área: %f km²\n PIB: %f bilhões de reais\n Numero de pontos Turísticos: %d \n",estado2, cod2,cidade2, populacao2, area2,  pib2, pontos_t2);
  
-Densidade Populacional: População / Área
- 
-PIB per capita: PIB / População*/
-
-    int densidade1 = populacao1 / area1;
-    int densidade2 = populacao2 * area2;
-    
-    /*Comparar um atributo escolhido: Você deverá escolher apenas um dos atributos numéricos (População, Área, PIB, Densidade Populacional ou PIB per capita) para realizar a comparação entre as duas cartas. Essa escolha deve ser feita diretamente no código, não pela entrada do usuário.
-    Carta 1 - São Paulo (SP): 12.300.000
-
-Carta 2 - Rio de Janeiro (RJ): 6.000.000
-
-Resultado: Carta 1 (São Paulo) venceu!
-    
-    */
-    printf("Carta 1 - %s (%s): %d", cidade1, estado2, densidade1);
-    printf("\nCarta 2 - %s (%s): %d", cidade2, estado2, densidade2);
-    if (densidade1 > densidade2) {
-        printf("\nResultado: Carta 1 (%s) venceu!", cidade1);
-    }
-    else {
-        printf("\nResultado: Carta 2(%s) venceu!", cidade2);
-    }
-    
     
   
         
