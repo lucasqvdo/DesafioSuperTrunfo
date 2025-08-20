@@ -58,10 +58,10 @@ int main() {
 
     float dens_p1 = populacao1 / area1;
     float pib_p1 = (pib1 * 1000000000) / populacao1;
-    
+    float super_poder1 = populacao1 + area1 + pib1 +pontos_t1;
 
     /*Após a entrada de cada carta o programa exibe os dados de forma legivel em que o usuário final consiga entender*/
-    printf(" Carta 1:\n Estado: %s\n Código: %s\n Nome da Cidade: %s\n População:%d\n Área: %f km²\n PIB: %f bilhões de reais\n Numero de pontos Turísticos: %d \n Densidade Populacional: %.2f hab/km² \nPIB per Capita: %.2f reais\n", 
+    printf(" Carta 1:\n Estado: %s\n Código: %s\n Nome da Cidade: %s\n População:%d\n Área: %f km²\n PIB: %.2f bilhões de reais\n Numero de pontos Turísticos: %d \n Densidade Populacional: %.2f hab/km² \nPIB per Capita: %.2f reais\n", 
         estado1, cod1, cidade1, populacao1, area1, pib1,  pontos_t1, dens_p1, pib_p1);
  
     /*Inicia-se aqui a coleta dos dados da segunda carta*/
@@ -88,17 +88,66 @@ int main() {
     
     float dens_p2 = populacao2 / area2;
     float pib_p2 = (pib2 * 1000000000) / populacao2;
+    float super_poder2 = populacao2 + area2 + pib2 + pontos_t2;
     
 
 
     /*Exibição dos dados da segunda carta*/
-    printf("Carta 2:\nEstado: %s\nCódigo: %s\nNome da Cidade: %s\nPopulação:%d\nÁrea: %f km²\nPIB: %f bilhões de reais\nNumero de pontos Turísticos: %d \nDensidade populacional: %.2f hab/km² \nPIB per Capita: %.2f reais\n ",estado2, cod2,cidade2, populacao2, area2,  pib2, pontos_t2, dens_p2, pib_p2);
- 
+    printf("Carta 2:\nEstado: %s\nCódigo: %s\nNome da Cidade: %s\nPopulação:%d\nÁrea: %f km²\nPIB: %.2f bilhões de reais\nNumero de pontos Turísticos: %d \nDensidade populacional: %.2f hab/km² \nPIB per Capita: %.2f reais\n ",estado2, cod2,cidade2, populacao2, area2,  pib2, pontos_t2, dens_p2, pib_p2);
+        
+    /*Armazenar resultados das comparações*/
+    int resultado_pop = populacao1 > populacao2;
+    int resultado_area = area1 > area2;
+    int resultado_pib = pib1 > pib2;
+    int resultado_pontos = pontos_t1 > pontos_t2;
+    int resultado_dens = dens_p1 < dens_p2;
+    int resultado_pip_p = pib_p1 > pib_p2;
+    int resultad_super_poder = super_poder1 > super_poder2;
+
+    printf("\n\n     ~ COMPARAÇÃO DAS CARTAS ~ \n");
+    //Condicionais para exibição das cartas vencedoras
+    if (resultado_pop == 1) {
+        printf("População: Carta 1 venceu(1)\n");
+    }  else {
+        printf("População: Carta 2 venceu(0)\n");
+    }
+
+
+
+    if (resultado_pib == 1) {
+            printf("PIB: Carta 1 venceu(1)\n");
+        }  else {
+            printf("PIB: Carta 2 venceu(0)\n");
+        }
+     if (resultado_pontos == 1) {
+        printf("Pontos turísticos: 1 venceu(1)\n");
+    }  else {
+        printf("Pontos turiísticos: Carta 2 venceu(0)\n");
+    }
+     if (resultado_dens == 1) {
+        printf("Densidade Populacional: Carta 1 venceu(1)\n");
+    }  else {
+        printf("Densidade Populacional: Carta 2 venceu(0)\n");
+    }
+
+    if (resultado_pip_p == 1) {
+        printf("PIB per Capita: Carta 1 venceu(1)\n");
+    }  else {
+        printf("PIB per Capita: Carta 2 venceu(0)\n");
+    }
+     if (resultad_super_poder == 1) {
+        printf("Super Poder: Carta 1 venceu(1)\n");
+    }  else {
+        printf("Super Poder: Carta 2 venceu(0)\n");
+    }
+
+    
+
     
   
         
   
-   
+    printf("\n\n ~ FIM DE JOGO ~ \n\n");
 
     return 0;
 }
